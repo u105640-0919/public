@@ -9,8 +9,8 @@ interface Props {
 }
 
 const {
-  title = 'Astro Web サイト',
-  description = 'Astroで構築された高速なWebサイトの雛形です。'
+  title = '★i-mode ﾎｰﾑﾍﾟｰｼﾞ★',
+  description = 'i-mode時代を完全再現したガラケー風レトロWebサイトです。'
 } = Astro.props;
 ---
 
@@ -18,7 +18,7 @@ const {
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="icon" type="image/svg+xml" href={getPath('/favicon.svg')} />
     <link rel="icon" href={getPath('/favicon.ico')} />
     <meta name="generator" content={Astro.generator} />
@@ -26,57 +26,134 @@ const {
     <title>{title}</title>
   </head>
   <body>
-    <div class="layout-wrapper">
-      <Header siteTitle="Astro Starter" />
-      <main class="main-content">
+    <!-- 外側背景（PC表示時はデスクトップ中央にケータイ端末風コンテナ） -->
+    <div class="phone-screen-container">
+      
+      <!-- ガラケー上部ステータスバー (アンテナ・時計・電池) -->
+      <div class="imode-status-bar">
+        <div class="status-left">
+          <span class="antenna">📶<i>lll</i></span>
+          <span class="service">i-mode</span>
+        </div>
+        <div class="status-center">12:34</div>
+        <div class="status-right">
+          <span class="battery">🔋<b>■■■</b></span>
+        </div>
+      </div>
+
+      <Header siteTitle="Astro★i-mode" />
+
+      <main class="imode-body">
         <slot />
       </main>
+
       <Footer />
     </div>
   </body>
 </html>
 
 <style is:global>
-  :root {
-    --primary-color: #4f46e5;
-    --primary-hover: #4338ca;
-    --text-color: #1f2937;
-    --text-muted: #6b7280;
-    --bg-color: #ffffff;
-    --bg-secondary: #f9fafb;
-    --card-bg: #ffffff;
-    --border-color: #e5e7eb;
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-
   * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
 
-  html,
   body {
-    font-family: var(--font-sans);
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    line-height: 1.6;
-    min-height: 100vh;
+    background-color: #333333;
+    color: #000000;
+    font-family: 'MS Gothic', 'Osaka-Mono', 'Hiragino Kaku Gothic ProN', monospace, sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  /* リンクのレトロスタイル */
+  a {
+    color: #0000cc;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: #880088;
+  }
+
+  a:hover {
+    color: #ff0000;
+  }
+
+  /* 点滅アニメーション（blinkタグの再現） */
+  .blink {
+    animation: imode-blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes imode-blink {
+    0% { visibility: visible; }
+    50% { visibility: hidden; }
+  }
+
+  /* レトロ水平線 */
+  hr {
+    border: none;
+    border-top: 1px solid #999999;
+    margin: 6px 0;
+  }
+
+  hr.dotted {
+    border-top: 1px dotted #ff0088;
+  }
+
+  hr.rainbow {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+    margin: 8px 0;
   }
 </style>
 
 <style>
-  .layout-wrapper {
+  .phone-screen-container {
+    width: 100%;
+    max-width: 340px;
+    min-height: 560px;
+    background-color: #ffffff;
+    border: 3px solid #666666;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    overflow-x: hidden;
   }
 
-  .main-content {
+  /* ガラケーステータスバー */
+  .imode-status-bar {
+    background-color: #000088;
+    color: #ffffff;
+    font-size: 11px;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 6px;
+    border-bottom: 1px solid #ffffff;
+  }
+
+  .antenna i {
+    font-style: normal;
+    font-weight: bold;
+    letter-spacing: -1px;
+  }
+
+  .battery b {
+    color: #00ff00;
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .imode-body {
     flex: 1;
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 6px 8px;
+    background-color: #ffffff;
   }
 </style>

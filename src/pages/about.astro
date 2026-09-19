@@ -1,105 +1,135 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getPath } from '../utils/path';
+
+const profileItems = [
+  { q: 'HN (ﾊﾝﾄﾞﾙﾈｰﾑ)', a: '★ｱｽﾄﾛたん★' },
+  { q: '職業', a: '魔法戦士兼Web職人' },
+  { q: '生年月日', a: '199X年 秘密' },
+  { q: '血液型', a: '典型的なA型' },
+  { q: '所持端末', a: 'Docomo P900i (カスタムジャケット装着)' },
+  { q: '趣味', a: '3和音着メロ打ち込み、ネトサ' },
+  { q: '好きな言葉', a: '「パケ死上等」「キリ番踏み逃げ禁止」' },
+  { q: 'ひとこと', a: '足跡残していってね！直メも歓迎(*^o^*)' },
+];
 ---
 
-<Layout title="アバウト | Astro Starter" description="このサイトについての紹介ページです。">
-  <section class="about-section">
-    <h1 class="page-title">このサイトについて</h1>
-    <p class="intro-lead">
-      このページは、Astroのファイルベースルーティング（<code>src/pages/about.astro</code>）によって自動的に生成されたサンプルページです。
-    </p>
-
-    <div class="card">
-      <h2>ディレクトリ構成について</h2>
-      <p>この雛形プロジェクトは、以下のような構成になっています：</p>
-      <ul>
-        <li><code>src/pages/</code>: 各ページ（ルーティング）を配置します。<code>.astro</code> や <code>.md</code> ファイルが自動的にURLになります。</li>
-        <li><code>src/components/</code>: ヘッダーやフッターなどの再利用可能なUIパーツを配置します。</li>
-        <li><code>src/layouts/</code>: ページ全体の共通レイアウト枠（HTMLシェル、ヘッダー、フッターなど）を配置します。</li>
-        <li><code>public/</code>: 画像やファビコンなど、ビルド処理を介さずにそのまま配信したい静的ファイルを配置します。</li>
-      </ul>
+<Layout title="自己紹介 | 前略ﾌﾟﾛﾌ風" description="管理人のプロフィールページです。">
+  <div class="about-page">
+    <div class="title-banner">
+      ◆* 前略ﾌﾟﾛﾌ風自己紹介 *◆
     </div>
 
-    <div class="action-box">
-      <a href={getPath('/')} class="btn-back">← トップページへ戻る</a>
+    <div class="avatar-area">
+      <div class="ascii-art">
+        ( ^ω^) ﾌﾞｰﾝ<br />
+        c( O┬O<br />
+        (_)_)
+      </div>
+      <div class="caption">※ 管理人の自画像です</div>
     </div>
-  </section>
+
+    <hr class="dotted" />
+
+    <div class="profile-table">
+      {profileItems.map((item) => (
+        <div class="profile-row">
+          <div class="profile-q">【{item.q}】</div>
+          <div class="profile-a">{item.a}</div>
+        </div>
+      ))}
+    </div>
+
+    <hr />
+
+    <div class="sub-banner">
+      ■ 当サイトについて
+    </div>
+    <div class="site-desc">
+      Astro v7で蘇る、古き良き2000年代初頭のiモード(ガラケー)体験をお届けするWebサイトです。<br /><br />
+      フレームワークは最新の超高速Astroですが、見た目は完全にパケ死に怯えていたあの頃のままです。
+    </div>
+
+    <div class="back-link">
+      <a href={getPath('/')}>← トップに戻る</a>
+    </div>
+  </div>
 </Layout>
 
 <style>
-  .about-section {
-    max-width: 768px;
-    margin: 0 auto;
-    padding: 2rem 0;
+  .about-page {
+    font-size: 12px;
   }
 
-  .page-title {
-    font-size: 2.25rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    color: #111827;
+  .title-banner {
+    background-color: #9932cc;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 3px 6px;
+    text-align: center;
+    margin-bottom: 6px;
   }
 
-  .intro-lead {
-    font-size: 1.125rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    line-height: 1.7;
+  .sub-banner {
+    background-color: #2e8b57;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 3px 6px;
+    margin: 8px 0 4px;
   }
 
-  code {
-    background: #f3f4f6;
-    padding: 0.15rem 0.35rem;
-    border-radius: 0.25rem;
-    font-size: 0.9em;
-    color: #ec4899;
+  .avatar-area {
+    text-align: center;
+    padding: 6px;
+    background-color: #f9f9f9;
+    border: 1px dashed #cccccc;
+    margin-bottom: 6px;
   }
 
-  .card {
-    background: #ffffff;
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  .ascii-art {
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 1.2;
+    color: #333333;
   }
 
-  .card h2 {
-    font-size: 1.35rem;
-    margin-bottom: 1rem;
-    color: #111827;
+  .caption {
+    font-size: 10px;
+    color: #888888;
+    margin-top: 4px;
   }
 
-  .card ul {
-    margin-left: 1.5rem;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+  .profile-table {
+    margin: 6px 0;
   }
 
-  .card li {
-    line-height: 1.6;
-    color: #374151;
+  .profile-row {
+    margin-bottom: 6px;
   }
 
-  .action-box {
-    margin-top: 2rem;
+  .profile-q {
+    font-weight: bold;
+    color: #ff0055;
+    font-size: 11px;
   }
 
-  .btn-back {
-    display: inline-block;
-    padding: 0.65rem 1.25rem;
-    background: #f3f4f6;
-    color: #374151;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 0.5rem;
-    transition: background-color 0.15s ease;
+  .profile-a {
+    padding-left: 8px;
+    color: #222222;
+    font-size: 12px;
   }
 
-  .btn-back:hover {
-    background: #e5e7eb;
+  .site-desc {
+    font-size: 11px;
+    line-height: 1.5;
+    background-color: #fafafa;
+    padding: 6px;
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+  }
+
+  .back-link {
+    text-align: center;
+    margin: 10px 0 4px;
   }
 </style>

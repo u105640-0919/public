@@ -1,174 +1,234 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getPath } from '../utils/path';
-
-const features = [
-  {
-    icon: '⚡',
-    title: 'ゼロJSの高速パフォーマンス',
-    description: 'AstroはデフォルトでクライアントサイドのJavaScriptを排除し、静的なHTMLを高速に配信します。'
-  },
-  {
-    icon: '🧩',
-    title: 'コンポーネント指向',
-    description: 'React, Vue, Svelteなどのお好みのUIフレームワークを自由に統合して利用できます。'
-  },
-  {
-    icon: '📁',
-    title: 'ファイルベースルーティング',
-    description: 'src/pages/ 配下にファイルを追加するだけで、直感的に新しいURLルートを作成できます。'
-  }
-];
 ---
 
-<Layout title="ホーム | Astro Starter" description="Astroの基本構成を備えたWebページの雛形です。">
-  <section class="hero">
-    <div class="badge">Astro Starter Template</div>
-    <h1 class="hero-title">高速でモダンなWebサイトを<br /><span class="gradient-text">Astroで構築しましょう</span></h1>
-    <p class="hero-subtitle">
-      このプロジェクトは、AstroでWebページを作成するための基本的な雛形です。<br />
-      レイアウト、コンポーネント、マルチページの構成が既に整っています。
-    </p>
-    <div class="hero-actions">
-      <a href={getPath('/about')} class="btn btn-primary">アバウトページを見る</a>
-      <a href="https://docs.astro.build" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">公式ドキュメント ↗</a>
+<Layout title="◆◇ Astro★i-mode ﾊﾟｰｸ ◇◆" description="iモード全盛期のガラケーWebサイトを完全再現したAstroテンプレートです。">
+  <!-- アクセスカウンターセクション -->
+  <div class="counter-box">
+    <div class="counter-text">
+      あなたは <span class="counter-digits">004810</span> 人目の旅人です<br />
+      (今日: <span class="num">12</span> / 昨日: <span class="num">89</span>)
     </div>
-  </section>
+    <div class="kiriban-info">
+      ※ 5000踏んだ人はBBSで報告してﾈ!
+    </div>
+  </div>
 
-  <section class="features-section">
-    <h2 class="section-title">Astroの特徴</h2>
-    <div class="features-grid">
-      {features.map((feature) => (
-        <div class="feature-card">
-          <div class="feature-icon">{feature.icon}</div>
-          <h3 class="feature-title">{feature.title}</h3>
-          <p class="feature-desc">{feature.description}</p>
-        </div>
-      ))}
+  <hr />
+
+  <!-- 管理人からの一言 -->
+  <div class="message-box">
+    <span class="icon">💬</span><b>管理人のひとこと</b><br />
+    最近バイト忙しすぎﾜﾛﾀw 誰かメールして〜(*^^*)
+  </div>
+
+  <!-- 更新履歴 (What's New) -->
+  <div class="section-title banner-pink">
+    ★* 更新履歴 *★
+  </div>
+  <div class="news-list">
+    <div>
+      <span class="date">09/19</span> <span class="blink new-badge">★NEW★</span><br />
+      <a href={getPath('/20260919_hello')}>日記を更新したよ！</a>
     </div>
-  </section>
+    <div>
+      <span class="date">09/18</span> サイト開設したお(・∀・)
+    </div>
+  </div>
+
+  <!-- メインメニュー -->
+  <div class="section-title banner-blue">
+    ▼ ﾒｲﾝﾒﾆｭｰ ▼
+  </div>
+  <ul class="menu-list">
+    <li>
+      <span class="key-num">[1]</span>
+      <a href={getPath('/about')} accesskey="1">自己紹介 (前略ﾌﾟﾛﾌ風)</a>
+    </li>
+    <li>
+      <span class="key-num">[2]</span>
+      <a href={getPath('/20260919_hello')} accesskey="2">管理人日記 (9/19更新)</a> <span class="blink new-tag">UP!</span>
+    </li>
+    <li>
+      <span class="key-num">[3]</span>
+      <a href="#bbs" accesskey="3">あしあとBBS (準備中)</a>
+    </li>
+    <li>
+      <span class="key-num">[4]</span>
+      <a href="#link" accesskey="4">お友達リンク集</a>
+    </li>
+    <li>
+      <span class="key-num">[5]</span>
+      <a href="mailto:admin@example.com" accesskey="5">管理人へ直メ</a>
+    </li>
+  </ul>
+
+  <!-- 掲示板風の案内 -->
+  <div class="section-title banner-orange" id="bbs">
+    ■ 簡易BBS (足跡帳)
+  </div>
+  <div class="bbs-preview">
+    <div class="bbs-item">
+      <span class="bbs-num">[12]</span> <b>通りすがり</b> (09/19 01:23)<br />
+      HP開設おめでとー！相互リンクしよ♪
+    </div>
+    <div class="bbs-item">
+      <span class="bbs-num">[11]</span> <b>名無しさん</b> (09/18 23:45)<br />
+      キリ番ゲットならず…orz また来ます！
+    </div>
+  </div>
+
+  <hr class="dotted" />
+
+  <!-- サイト利用上の注意 -->
+  <div class="caution-box">
+    <font color="#cc0000">【注意】</font><br />
+    ・当サイトはパケ放題推奨です。<br />
+    ・誹謗中傷、荒らしはアク禁にします(怒)<br />
+    ・推奨ブラウザ: Docomo FOMA 900i/700i、504i以降
+  </div>
 </Layout>
 
 <style>
-  .hero {
+  /* カウンター */
+  .counter-box {
     text-align: center;
-    padding: 3rem 0 4rem;
+    background-color: #000000;
+    color: #00ff00;
+    padding: 6px;
+    font-family: monospace;
+    font-size: 11px;
+    border: 2px inset #999999;
+    margin-bottom: 6px;
   }
 
-  .badge {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--primary-color);
-    background: #eef2ff;
-    border-radius: 9999px;
-    margin-bottom: 1.25rem;
+  .counter-digits {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff0000;
+    background-color: #ffffff;
+    padding: 0 4px;
+    border: 1px solid #666666;
+    letter-spacing: 2px;
   }
 
-  .hero-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 1.25rem;
-    color: #111827;
+  .num {
+    color: #ffff00;
   }
 
-  .gradient-text {
-    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .kiriban-info {
+    font-size: 10px;
+    color: #00ffff;
+    margin-top: 2px;
   }
 
-  .hero-subtitle {
-    font-size: 1.125rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    line-height: 1.7;
+  /* 管理人ひとこと */
+  .message-box {
+    background-color: #f0f8ff;
+    border: 1px solid #b0c4de;
+    padding: 4px 6px;
+    font-size: 11px;
+    margin-bottom: 8px;
   }
 
-  .hero-actions {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+  /* 帯見出し */
+  .section-title {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 6px;
+    margin: 8px 0 4px;
   }
 
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  .btn-primary {
-    background: var(--primary-color);
+  .banner-pink {
+    background-color: #ff69b4;
     color: #ffffff;
   }
 
-  .btn-primary:hover {
-    background: var(--primary-hover);
+  .banner-blue {
+    background-color: #0055aa;
+    color: #ffffff;
   }
 
-  .btn-secondary {
-    background: #f3f4f6;
-    color: #374151;
+  .banner-orange {
+    background-color: #ff8c00;
+    color: #ffffff;
   }
 
-  .btn-secondary:hover {
-    background: #e5e7eb;
+  /* 更新履歴 */
+  .news-list {
+    font-size: 11px;
+    padding: 2px 4px;
+    line-height: 1.5;
   }
 
-  .features-section {
-    padding-top: 2rem;
+  .date {
+    color: #666666;
   }
 
-  .section-title {
-    text-align: center;
-    font-size: 1.75rem;
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: #111827;
+  .new-badge {
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 10px;
   }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
+  .new-tag {
+    color: #ff0000;
+    font-size: 10px;
+    font-weight: bold;
   }
 
-  .feature-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0.75rem;
-    padding: 1.75rem;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* メニュー */
+  .menu-list {
+    list-style: none;
+    padding: 2px 4px;
   }
 
-  .feature-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  .menu-list li {
+    margin-bottom: 5px;
+    font-size: 12px;
   }
 
-  .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
+  .key-num {
+    font-weight: bold;
+    color: #ff0055;
+    margin-right: 2px;
   }
 
-  .feature-title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #111827;
+  /* BBS */
+  .bbs-preview {
+    background-color: #fafafa;
+    border: 1px solid #dddddd;
+    padding: 4px;
+    font-size: 11px;
+    margin-bottom: 6px;
   }
 
-  .feature-desc {
-    color: var(--text-muted);
-    font-size: 0.925rem;
-    line-height: 1.6;
+  .bbs-item {
+    margin-bottom: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed #e0e0e0;
+    line-height: 1.3;
+  }
+
+  .bbs-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .bbs-num {
+    color: #0055aa;
+  }
+
+  /* 注意事項 */
+  .caution-box {
+    font-size: 10px;
+    color: #555555;
+    background-color: #fffaf0;
+    border: 1px solid #ffe4b5;
+    padding: 4px 6px;
+    margin: 8px 0;
+    line-height: 1.4;
   }
 </style>

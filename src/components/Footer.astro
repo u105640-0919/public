@@ -1,35 +1,55 @@
 ---
+import { getPath } from '../utils/path';
+
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="site-footer">
-  <div class="footer-container">
-    <p>&copy; {currentYear} My Astro Site. Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>.</p>
+<footer class="imode-footer">
+  <hr class="rainbow" />
+
+  <div class="nav-shortcuts">
+    <a href={getPath('/')} accesskey="0">[0] ﾄｯﾌﾟへ戻る</a><br />
+    <a href="#top">[#] ﾍﾟｰｼﾞ最上部▲</a>
+  </div>
+
+  <hr class="dotted" />
+
+  <div class="footer-notice">
+    <p>当ｻｲﾄはﾘﾝｸﾌﾘｰです★<br />(相互ﾘﾝｸ募集中!)</p>
+    <p class="copyright">
+      無断転載禁止<br />
+      (c)2002-{currentYear} Astro Mobile.<br />
+      Produced by Astro.js
+    </p>
   </div>
 </footer>
 
 <style>
-  .site-footer {
-    background: #f9fafb;
-    border-top: 1px solid #e5e7eb;
-    margin-top: auto;
-    padding: 2rem 1.5rem;
+  .imode-footer {
+    padding: 6px 8px 12px;
+    font-size: 11px;
     text-align: center;
-    color: #6b7280;
-    font-size: 0.875rem;
+    background-color: #f5f5f5;
   }
 
-  .footer-container {
-    max-width: 1024px;
-    margin: 0 auto;
+  .nav-shortcuts {
+    margin: 6px 0;
+    line-height: 1.6;
   }
 
-  .site-footer a {
-    color: #4f46e5;
-    text-decoration: none;
+  .nav-shortcuts a {
+    font-weight: bold;
   }
 
-  .site-footer a:hover {
-    text-decoration: underline;
+  .footer-notice {
+    color: #666666;
+    line-height: 1.4;
+    margin-top: 6px;
+  }
+
+  .copyright {
+    font-size: 10px;
+    margin-top: 4px;
+    color: #888888;
   }
 </style>
