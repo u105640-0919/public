@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPath } from '../utils/path';
+
+const features = [
+  {
+    icon: '⚡',
+    title: 'ゼロJSの高速パフォーマンス',
+    description: 'AstroはデフォルトでクライアントサイドのJavaScriptを排除し、静的なHTMLを高速に配信します。'
+  },
+  {
+    icon: '🧩',
+    title: 'コンポーネント指向',
+    description: 'React, Vue, Svelteなどのお好みのUIフレームワークを自由に統合して利用できます。'
+  },
+  {
+    icon: '📁',
+    title: 'ファイルベースルーティング',
+    description: 'src/pages/ 配下にファイルを追加するだけで、直感的に新しいURLルートを作成できます。'
+  }
+];
+---
+
+<Layout title="ホーム | Astro Starter" description="Astroの基本構成を備えたWebページの雛形です。">
+  <section class="hero">
+    <div class="badge">Astro Starter Template</div>
+    <h1 class="hero-title">高速でモダンなWebサイトを<br /><span class="gradient-text">Astroで構築しましょう</span></h1>
+    <p class="hero-subtitle">
+      このプロジェクトは、AstroでWebページを作成するための基本的な雛形です。<br />
+      レイアウト、コンポーネント、マルチページの構成が既に整っています。
+    </p>
+    <div class="hero-actions">
+      <a href={getPath('/about')} class="btn btn-primary">アバウトページを見る</a>
+      <a href="https://docs.astro.build" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">公式ドキュメント ↗</a>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2 class="section-title">Astroの特徴</h2>
+    <div class="features-grid">
+      {features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-icon">{feature.icon}</div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-desc">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 3rem 0 4rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: #eef2ff;
+    border-radius: 9999px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
+    color: #111827;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #4f46e5 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary {
+    background: var(--primary-color);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+
+  .btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+  }
+
+  .btn-secondary:hover {
+    background: #e5e7eb;
+  }
+
+  .features-section {
+    padding-top: 2rem;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #111827;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 1.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .feature-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111827;
+  }
+
+  .feature-desc {
+    color: var(--text-muted);
+    font-size: 0.925rem;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getPath } from '../utils/path';
+---
+
+<Layout title="アバウト | Astro Starter" description="このサイトについての紹介ページです。">
+  <section class="about-section">
+    <h1 class="page-title">このサイトについて</h1>
+    <p class="intro-lead">
+      このページは、Astroのファイルベースルーティング（<code>src/pages/about.astro</code>）によって自動的に生成されたサンプルページです。
+    </p>
+
+    <div class="card">
+      <h2>ディレクトリ構成について</h2>
+      <p>この雛形プロジェクトは、以下のような構成になっています：</p>
+      <ul>
+        <li><code>src/pages/</code>: 各ページ（ルーティング）を配置します。<code>.astro</code> や <code>.md</code> ファイルが自動的にURLになります。</li>
+        <li><code>src/components/</code>: ヘッダーやフッターなどの再利用可能なUIパーツを配置します。</li>
+        <li><code>src/layouts/</code>: ページ全体の共通レイアウト枠（HTMLシェル、ヘッダー、フッターなど）を配置します。</li>
+        <li><code>public/</code>: 画像やファビコンなど、ビルド処理を介さずにそのまま配信したい静的ファイルを配置します。</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <a href={getPath('/')} class="btn-back">← トップページへ戻る</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-section {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+
+  .intro-lead {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  code {
+    background: #f3f4f6;
+    padding: 0.15rem 0.35rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+    color: #ec4899;
+  }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .card h2 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+    color: #111827;
+  }
+
+  .card ul {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .card li {
+    line-height: 1.6;
+    color: #374151;
+  }
+
+  .action-box {
+    margin-top: 2rem;
+  }
+
+  .btn-back {
+    display: inline-block;
+    padding: 0.65rem 1.25rem;
+    background: #f3f4f6;
+    color: #374151;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s ease;
+  }
+
+  .btn-back:hover {
+    background: #e5e7eb;
+  }
+</style>
